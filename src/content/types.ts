@@ -91,6 +91,12 @@ export interface AccentBar {
   height?: number
 }
 
+// ── Page definition (for multi-page documents) ──
+export interface PageDefinition {
+  sections: Section[]
+  accentBar?: AccentBar
+}
+
 // ── Document definition (root) ──
 export interface DocumentDefinition {
   meta: {
@@ -98,5 +104,6 @@ export interface DocumentDefinition {
     exportFilename: string
   }
   accentBar?: AccentBar
-  sections: Section[]
+  sections?: Section[]       // single-page (legacy)
+  pages?: PageDefinition[]   // multi-page
 }

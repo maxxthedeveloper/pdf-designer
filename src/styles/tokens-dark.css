@@ -5,10 +5,11 @@
   --border-subtle:       var(--gray-800);
   --icon-bg:             var(--gray-850);
   --icon-border:         var(--gray-750);
+  --surface-canvas:      var(--gray-850);
 
   --emphasis-extra-high: var(--gray-0);
   --emphasis-high:       var(--gray-200);
-  --emphasis-medium:     var(--gray-400);
+  --emphasis-medium:     var(--gray-300);
   --emphasis-low:        var(--gray-400);
   --emphasis-extra-low:  var(--gray-500);
 }

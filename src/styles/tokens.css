@@ -33,6 +33,7 @@
   --border-subtle:       var(--gray-75);
   --icon-bg:             var(--gray-25);
   --icon-border:         var(--gray-75);
+  --surface-canvas:      var(--gray-75);
 
   /* ── Typescale — Perfect Fourth (1.333) ── */
   --text-2xs:   0.625rem;
