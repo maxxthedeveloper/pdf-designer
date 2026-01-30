@@ -6,7 +6,7 @@
 .pdf-page {
   width: 210mm;
   min-height: 297mm;
-  padding: 32px 36px 28px;
+  padding: 32px 48px 28px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -150,10 +150,19 @@
 }
 
 .card {
-  background: var(--surface-card);
-  border: 1px solid var(--surface-card-border);
+  background: var(--gray-900);
+  border: 1px solid var(--gray-800);
   border-radius: 12px;
   padding: 22px 24px;
+  box-shadow: var(--shadow-lg);
+}
+
+.card .card-title {
+  color: #fff;
+}
+
+.card .card-desc {
+  color: var(--gray-300);
 }
 
 .card-title {
