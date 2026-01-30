@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { Outlet, NavLink } from 'react-router-dom'
-import { Agentation } from 'agentation'
 import { AppProvider, useAppState } from './context/AppContext'
 import styles from './App.module.css'
 
@@ -33,6 +32,9 @@ function Layout() {
             <NavLink to="/tokens" className={({ isActive }) => isActive ? styles.linkActive : styles.link}>
               Tokens
             </NavLink>
+            <NavLink to="/library" className={({ isActive }) => isActive ? styles.linkActive : styles.link}>
+              Library
+            </NavLink>
           </div>
         </nav>
         <main className={styles.main} data-print-main>
@@ -47,7 +49,6 @@ export default function App() {
   return (
     <AppProvider>
       <Layout />
-      {import.meta.env.DEV && <div data-print-hide><Agentation /></div>}
     </AppProvider>
   )
 }

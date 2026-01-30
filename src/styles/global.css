@@ -36,12 +36,13 @@ body {
   }
 
   body {
-    background: #fff;
+    background: var(--surface-page);
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
-  [data-print-hide] {
+  [data-print-hide],
+  [data-feedback-toolbar] {
     display: none !important;
   }
 

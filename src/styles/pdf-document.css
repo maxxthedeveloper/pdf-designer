@@ -316,6 +316,14 @@
   color: var(--emphasis-extra-low);
 }
 
+.footer-pagination {
+  font-size: var(--type-overline-size);
+  font-weight: var(--type-overline-weight);
+  letter-spacing: var(--type-overline-tracking);
+  line-height: var(--type-overline-leading);
+  color: var(--emphasis-extra-low);
+}
+
 .footer-logo svg {
   height: 20px;
   width: auto;
@@ -333,7 +341,7 @@
     min-height: 0;
     overflow: hidden;
     box-shadow: none;
-    background: #fff;
+    background: var(--surface-page);
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
     page-break-after: always;
