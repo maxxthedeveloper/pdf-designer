@@ -201,6 +201,102 @@
   color: var(--emphasis-medium);
 }
 
+/* ── Comparison table ── */
+.comparison-table {
+  margin-bottom: 20px;
+}
+
+.comparison-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.comparison-table th {
+  font-size: var(--type-label-size);
+  font-weight: var(--type-label-weight);
+  letter-spacing: var(--type-label-tracking);
+  line-height: var(--type-label-leading);
+  color: var(--emphasis-extra-high);
+  text-align: left;
+  padding: 8px 12px 8px 0;
+  border-bottom: 2px solid var(--border-subtle);
+}
+
+.comparison-table td {
+  font-size: var(--type-caption-size);
+  font-weight: var(--type-caption-weight);
+  line-height: var(--type-caption-leading);
+  letter-spacing: var(--type-caption-tracking);
+  padding: 6px 12px 6px 0;
+  color: var(--emphasis-high);
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: top;
+}
+
+.comparison-table td:first-child {
+  font-weight: var(--type-label-weight);
+  color: var(--emphasis-extra-high);
+}
+
+.comparison-table .table-footnote {
+  font-size: var(--type-caption-sm-size);
+  font-weight: var(--type-caption-sm-weight);
+  line-height: var(--type-caption-sm-leading);
+  letter-spacing: var(--type-caption-sm-tracking);
+  color: var(--emphasis-medium);
+  margin-top: 12px;
+}
+
+/* ── Bullet list ── */
+.bullet-list {
+  margin-bottom: 20px;
+}
+
+.bullet-group {
+  margin-bottom: 12px;
+}
+
+.bullet-group:last-child {
+  margin-bottom: 0;
+}
+
+.bullet-group-label {
+  font-size: var(--type-label-size);
+  font-weight: var(--type-label-weight);
+  letter-spacing: var(--type-label-tracking);
+  line-height: var(--type-label-leading);
+  color: var(--emphasis-extra-high);
+  margin-bottom: 6px;
+}
+
+.bullet-group ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.bullet-group li {
+  font-size: var(--type-caption-size);
+  font-weight: var(--type-caption-weight);
+  line-height: var(--type-caption-leading);
+  letter-spacing: var(--type-caption-tracking);
+  color: var(--emphasis-high);
+  margin-bottom: 4px;
+}
+
+.bullet-group li:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Text block ── */
+.text-block {
+  margin-bottom: 20px;
+}
+
+.text-block .section-desc + .section-desc {
+  margin-top: 8px;
+}
+
 /* ── Footer ── */
 .pdf-footer {
   display: flex;
@@ -224,4 +320,23 @@
   height: 20px;
   width: auto;
   color: var(--emphasis-extra-low);
+}
+
+@media print {
+  .pdf-document {
+    gap: 0;
+  }
+
+  .pdf-page {
+    box-shadow: none;
+    break-after: page;
+    page-break-after: always;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .pdf-page:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
 }

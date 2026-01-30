@@ -1,5 +1,3 @@
-import { snapdom } from '@zumer/snapdom'
-import { jsPDF } from 'jspdf'
 import { useActiveDocument } from '../context/AppContext'
 
 export function useExportPdf() {
@@ -20,27 +18,24 @@ export function useExportPdf() {
     const pageElements = container.querySelectorAll<HTMLElement>('.pdf-page')
     if (pageElements.length === 0) return
 
-    const pdf = new jsPDF('p', 'mm', 'a4')
-    const pageWidth = 210
+    const exportTitle = doc.meta.exportFilename.replace(/\.pdf$/i, '')
+    const previousTitle = document.title
+    document.title = exportTitle
 
-    for (let i = 0; i < pageElements.length; i++) {
-      const result = await snapdom(pageElements[i], {
-        scale: 3,
-        outerShadows: true,
-        embedFonts: true,
-      })
-      const canvas = await result.toCanvas()
-
-      const pageHeight = (canvas.height * pageWidth) / canvas.width
-      const imgData = canvas.toDataURL('image/png')
-
-      if (i > 0) {
-        pdf.addPage()
+    await new Promise<void>((resolve) => {
+      let resolved = false
+      const finish = () => {
+        if (resolved) return
+        resolved = true
+        window.removeEventListener('afterprint', finish)
+        resolve()
       }
 
-      pdf.addImage(imgData, 'PNG', 0, 0, pageWidth, pageHeight)
-    }
+      window.addEventListener('afterprint', finish)
+      window.print()
+      setTimeout(finish, 10000)
+    })
 
-    pdf.save(doc.meta.exportFilename)
+    document.title = previousTitle
   }
 }

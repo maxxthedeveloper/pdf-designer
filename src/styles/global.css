@@ -25,6 +25,42 @@ body {
   color: var(--emphasis-high);
 }
 
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  html, body, #root {
+    height: auto;
+  }
+
+  body {
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  [data-print-hide] {
+    display: none !important;
+  }
+
+  [data-print-main] {
+    overflow: visible;
+  }
+
+  [data-print-editor] {
+    display: block;
+    height: auto;
+  }
+
+  [data-print-canvas] {
+    padding: 0;
+    background: transparent;
+    overflow: visible;
+  }
+}
+
 /* Agentation toolbar — pin to bottom-left */
 [data-feedback-toolbar] {
   right: auto !important;
