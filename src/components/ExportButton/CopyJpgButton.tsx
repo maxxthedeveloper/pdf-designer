@@ -3,6 +3,7 @@ import styles from './ExportButton.module.css'
 
 interface CopyJpgButtonProps {
   pdfRef: React.RefObject<HTMLDivElement | null>
+  compact?: boolean
 }
 
 const labels = {
@@ -12,16 +13,24 @@ const labels = {
   error: 'Copy failed',
 } as const
 
-export default function CopyJpgButton({ pdfRef }: CopyJpgButtonProps) {
+const compactLabels = {
+  idle: 'JPG',
+  exporting: '...',
+  copied: 'Copied!',
+  error: 'Failed',
+} as const
+
+export default function CopyJpgButton({ pdfRef, compact }: CopyJpgButtonProps) {
   const { copyJpg, status } = useExportJpg()
+  const l = compact ? compactLabels : labels
 
   return (
     <button
-      className={`${styles.btn} ${styles.secondary} ${status !== 'idle' ? styles.loading : ''}`}
+      className={`${styles.btn} ${styles.secondary} ${compact ? styles.compact : ''} ${status !== 'idle' ? styles.loading : ''}`}
       onClick={() => copyJpg(pdfRef)}
       disabled={status === 'exporting'}
     >
-      {labels[status]}
+      {l[status]}
     </button>
   )
 }

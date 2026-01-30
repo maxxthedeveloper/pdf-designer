@@ -1,5 +1,6 @@
 import type { DocumentDefinition } from './types'
 import { document as solanaSdp } from './documents/solana-sdp'
+import { document as solanaVsBase } from './documents/solana-vs-base'
 
 export interface DocumentEntry {
   id: string
@@ -9,9 +10,12 @@ export interface DocumentEntry {
 
 export const documentRegistry: DocumentEntry[] = [
   { id: 'solana-sdp', label: 'Solana Development Platform', definition: solanaSdp },
+  { id: 'solana-vs-base', label: 'Solana vs Base Comparison', definition: solanaVsBase },
 ]
 
 export const DEFAULT_DOCUMENT_ID = 'solana-sdp'
+
+export const BUILTIN_DOCUMENT_IDS = new Set(documentRegistry.map((e) => e.id))
 
 const STORAGE_KEY = 'pdf-designer:active-document'
 
