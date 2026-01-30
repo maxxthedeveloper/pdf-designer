@@ -45,6 +45,14 @@
   margin-bottom: 14px;
 }
 
+.sectionDesc {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--emphasis-medium);
+  margin-bottom: 14px;
+}
+
 /* ── Steps ── */
 
 .steps {

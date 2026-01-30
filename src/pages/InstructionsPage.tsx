@@ -29,6 +29,27 @@ const examplePrompts = [
   'Replace the content with the text from this document',
 ]
 
+const figmaSteps = [
+  {
+    number: '1',
+    title: 'Install the companion plugin',
+    description:
+      'In Figma, go to Plugins \u2192 Development \u2192 Import plugin from manifest. Select the manifest.json file inside the figma-plugin/ folder.',
+  },
+  {
+    number: '2',
+    title: 'Export from the editor',
+    description:
+      'Open the Editor tab and click Export to Figma. The design is serialized and copied to your clipboard as JSON.',
+  },
+  {
+    number: '3',
+    title: 'Import into Figma',
+    description:
+      'Run the PDF Designer Import plugin in Figma, paste the JSON, and click Import Design. Editable layers appear on your canvas.',
+  },
+]
+
 export default function InstructionsPage() {
   return (
     <div className={styles.page}>
@@ -63,6 +84,24 @@ export default function InstructionsPage() {
             {examplePrompts.map((prompt, i) => (
               <div key={i} className={styles.prompt}>
                 &ldquo;{prompt}&rdquo;
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Export to Figma</h2>
+          <p className={styles.sectionDesc}>
+            Bring your design into Figma as editable layers &mdash; text, icons, colors, and layout all transfer over.
+          </p>
+          <div className={styles.steps}>
+            {figmaSteps.map((step) => (
+              <div key={step.number} className={styles.step}>
+                <div className={styles.stepNumber}>{step.number}</div>
+                <div>
+                  <h3 className={styles.stepName}>{step.title}</h3>
+                  <p className={styles.stepDesc}>{step.description}</p>
+                </div>
               </div>
             ))}
           </div>
