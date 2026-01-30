@@ -60,7 +60,6 @@
 
 @media print {
   .shell {
-    height: auto;
-    overflow: visible;
+    display: contents;
   }
 }

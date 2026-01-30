@@ -324,21 +324,26 @@
 
 @media print {
   .pdf-document {
-    gap: 0;
+    display: contents;
   }
 
   .pdf-page {
+    width: 210mm;
     height: 297mm;
     min-height: 0;
+    overflow: hidden;
     box-shadow: none;
-    break-after: page;
-    page-break-after: always;
+    background: #fff;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+    page-break-after: always;
+    break-after: page;
+    page-break-inside: avoid;
+    break-inside: avoid;
   }
 
   .pdf-page:last-child {
-    break-after: auto;
     page-break-after: auto;
+    break-after: auto;
   }
 }

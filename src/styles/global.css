@@ -45,21 +45,10 @@ body {
     display: none !important;
   }
 
-  [data-print-main] {
-    overflow: visible;
-    height: auto;
-  }
-
-  [data-print-editor] {
-    display: block;
-    height: auto;
-  }
-
+  [data-print-main],
+  [data-print-editor],
   [data-print-canvas] {
-    display: block;
-    padding: 0;
-    background: transparent;
-    overflow: visible;
+    display: contents !important;
   }
 }
 
