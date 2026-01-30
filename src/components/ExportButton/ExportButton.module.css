@@ -3,9 +3,9 @@
   padding: 10px 16px;
   border: none;
   border-radius: 8px;
-  background: #fff;
-  color: #08080a;
-  font-family: 'Inter', sans-serif;
+  background: var(--emphasis-extra-high);
+  color: var(--surface-page);
+  font-family: inherit;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -13,7 +13,7 @@
 }
 
 .btn:hover {
-  background: #e0e1e4;
+  background: var(--emphasis-high);
 }
 
 .btn:disabled {
@@ -22,6 +22,6 @@
 }
 
 .loading {
-  background: #555;
-  color: #ccc;
+  background: var(--emphasis-medium);
+  color: var(--surface-page);
 }
