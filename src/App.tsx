@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Outlet, NavLink } from 'react-router-dom'
+import { Agentation } from 'agentation'
 import { AppProvider, useAppState } from './context/AppContext'
 import styles from './App.module.css'
 
@@ -46,6 +47,7 @@ export default function App() {
   return (
     <AppProvider>
       <Layout />
+      {import.meta.env.DEV && <Agentation />}
     </AppProvider>
   )
 }
