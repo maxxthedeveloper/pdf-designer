@@ -25,7 +25,7 @@ export default function ExportButton({ pdfRef }: ExportButtonProps) {
       onClick={handleExport}
       disabled={loading}
     >
-      {loading ? 'Exporting...' : 'Export PDF'}
+      {loading ? 'Opening print…' : 'Print / Save PDF'}
     </button>
   )
 }

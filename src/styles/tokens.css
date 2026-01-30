@@ -19,12 +19,27 @@
   --gray-25:  #f8f8f9;
   --gray-0:   #ffffff;
 
-  /* ── Text Emphasis (light defaults) ── */
-  --emphasis-extra-high: var(--gray-950);
-  --emphasis-high:       var(--gray-700);
-  --emphasis-medium:     var(--gray-500);
-  --emphasis-low:        var(--gray-400);
-  --emphasis-extra-low:  var(--gray-300);
+  /* ── Text Emphasis ──
+     Three zones: Prominent (titles), Readable (body), Decorative (metadata).
+     Geometric spacing — each zone boundary is a large perceptual gap.
+     Gray scale has a subtle blue-violet tint (Apple HIG principle).
+
+     Type Role       →  Emphasis         →  Zone
+     ────────────────────────────────────────────────
+     display         →  extra-high       →  Prominent
+     heading         →  extra-high       →  Prominent
+     subheading      →  extra-high       →  Prominent
+     body            →  high             →  Readable
+     body-sm         →  medium           →  Readable
+     label           →  extra-high       →  Prominent
+     caption         →  medium           →  Readable
+     caption-sm      →  medium           →  Readable
+     overline        →  low              →  Decorative  */
+  --emphasis-extra-high: var(--gray-950);   /* ~19:1 — titles, headings */
+  --emphasis-high:       var(--gray-650);   /* ~9:1  — primary body */
+  --emphasis-medium:     var(--gray-500);   /* ~6:1  — secondary body, descriptions */
+  --emphasis-low:        var(--gray-300);   /* ~3:1  — icons, overlines, metadata */
+  --emphasis-extra-low:  var(--gray-200);   /* ~2:1  — footer, watermarks */
 
   /* ── Surface tokens (light defaults) ── */
   --surface-page:        var(--gray-0);
@@ -35,19 +50,37 @@
   --icon-border:         var(--gray-75);
   --surface-canvas:      var(--gray-75);
 
-  /* ── Typescale — Perfect Fourth (1.333) ── */
-  --text-2xs:   0.625rem;
-  --text-xs:    0.6875rem;
-  --text-sm:    0.8125rem;
-  --text-base:  1rem;
-  --text-md:    1.1875rem;
-  --text-lg:    1.4375rem;
-  --text-xl:    1.75rem;
-  --text-2xl:   2.25rem;
-  --text-3xl:   2.875rem;
-  --text-4xl:   3.75rem;
+  /* ── Typescale ──
+     Hand-tuned for PDF/print (A4 at 210mm, exported at 3x).
+     Eight steps covering three tiers of hierarchy.
+     Not a mathematical ratio — sized for perceptual clarity. */
+  --text-2xs:  0.625rem;     /* 10px */
+  --text-xs:   0.6875rem;    /* 11px */
+  --text-sm:   0.75rem;      /* 12px */
+  --text-base: 0.8125rem;    /* 13px */
+  --text-md:   0.875rem;     /* 14px */
+  --text-lg:   0.9375rem;    /* 15px */
+  --text-xl:   1.125rem;     /* 18px */
+  --text-2xl:  2.625rem;     /* 42px */
+
+  /* ── Spacing (8pt grid) ── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* ── Border Radius ── */
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  12px;
 
   /* ── Line Heights ── */
+  --leading-display: 1.05;
   --leading-tight:   1.1;
   --leading-snug:    1.25;
   --leading-normal:  1.5;
@@ -66,9 +99,79 @@
   --weight-medium:    500;
   --weight-semibold:  600;
 
-  /* ── Shadows ── */
-  --shadow-sm:   0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md:   0 2px 6px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-lg:   0 4px 12px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
-  --shadow-xl:   0 8px 24px rgba(0, 0, 0, 0.10), 0 2px 6px rgba(0, 0, 0, 0.04);
+  /* ── Type Roles ──
+     Three-tier hierarchy (Apple HIG + Tailwind prose principles).
+
+     DISPLAY   — Page-level prominence. Tight tracking, tight leading.
+     READING   — Section-level structure. Weight differentiates within tier.
+     SUPPORTING — Detail-level info. Wide tracking aids small-size legibility.
+
+     Rules:
+     1. Size creates tiers. Weight creates roles within tiers.
+     2. Tracking tightens as size increases.
+     3. Leading loosens from display to body.
+     4. Semibold reserved for structural headings only.
+     5. Same-size roles differ by weight + tracking (cf. Apple Headline/Body). */
+
+  /* Display tier */
+  --type-display-size:     var(--text-2xl);
+  --type-display-weight:   var(--weight-semibold);
+  --type-display-leading:  var(--leading-display);
+  --type-display-tracking: var(--tracking-tight);
+
+  /* Reading tier */
+  --type-heading-size:     var(--text-xl);
+  --type-heading-weight:   var(--weight-semibold);
+  --type-heading-leading:  var(--leading-snug);
+  --type-heading-tracking: var(--tracking-tight);
+
+  --type-subheading-size:     var(--text-lg);
+  --type-subheading-weight:   var(--weight-medium);
+  --type-subheading-leading:  var(--leading-snug);
+  --type-subheading-tracking: var(--tracking-normal);
+
+  --type-body-size:     var(--text-md);
+  --type-body-weight:   var(--weight-regular);
+  --type-body-leading:  var(--leading-relaxed);
+  --type-body-tracking: var(--tracking-normal);
+
+  --type-body-sm-size:     var(--text-base);
+  --type-body-sm-weight:   var(--weight-regular);
+  --type-body-sm-leading:  var(--leading-normal);
+  --type-body-sm-tracking: var(--tracking-normal);
+
+  /* Supporting tier */
+  --type-label-size:     var(--text-sm);
+  --type-label-weight:   var(--weight-medium);
+  --type-label-leading:  var(--leading-snug);
+  --type-label-tracking: var(--tracking-wide);
+
+  --type-caption-size:     var(--text-sm);
+  --type-caption-weight:   var(--weight-regular);
+  --type-caption-leading:  var(--leading-normal);
+  --type-caption-tracking: var(--tracking-normal);
+
+  --type-caption-sm-size:     var(--text-xs);
+  --type-caption-sm-weight:   var(--weight-regular);
+  --type-caption-sm-leading:  var(--leading-normal);
+  --type-caption-sm-tracking: var(--tracking-wide);
+
+  --type-overline-size:     var(--text-2xs);
+  --type-overline-weight:   var(--weight-medium);
+  --type-overline-leading:  var(--leading-snug);
+  --type-overline-tracking: var(--tracking-widest);
+
+  /* ── Shadows (Solana Design System) ── */
+  --shadow-card-bevel: 0 1px 3px 0 rgba(11, 19, 36, 0.10),
+                       inset 0 -1px 0 0 rgba(0, 0, 0, 0.10);
+  --border-card-bevel: rgba(11, 19, 36, 0.07);
+  --shadow-50:   0 1.5px 3px 0 rgba(0, 0, 0, 0.04), inset 0 -1.5px 1px 0 rgba(0, 0, 0, 0.05);
+  --shadow-100:  0 2px 4px -2px rgba(0, 0, 0, 0.12), 0 4px 4px -2px rgba(0, 0, 0, 0.08);
+  --shadow-200:  0 4px 6px -4px rgba(0, 0, 0, 0.12), 0 8px 8px -4px rgba(0, 0, 0, 0.08);
+  --shadow-300:  0 6px 8px -6px rgba(0, 0, 0, 0.12), 0 8px 16px -6px rgba(0, 0, 0, 0.08);
+  --shadow-400:  0 6px 12px -6px rgba(0, 0, 0, 0.12), 0 8px 24px -4px rgba(0, 0, 0, 0.08);
+  --shadow-500:  0 6px 14px -6px rgba(0, 0, 0, 0.12), 0 10px 32px -4px rgba(0, 0, 0, 0.10);
+  --shadow-600:  0 8px 18px -6px rgba(0, 0, 0, 0.12), 0 12px 42px -4px rgba(0, 0, 0, 0.12);
+  --shadow-800:  0 8px 22px -6px rgba(0, 0, 0, 0.12), 0 14px 64px -4px rgba(0, 0, 0, 0.12);
+  --shadow-900:  0 8px 28px -6px rgba(0, 0, 0, 0.12), 0 18px 88px -4px rgba(0, 0, 0, 0.14);
 }

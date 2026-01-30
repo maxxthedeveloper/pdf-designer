@@ -9,6 +9,7 @@ export default function Cards({ section }: CardsProps) {
     <div className="bottom-cards">
       {section.items.map((item) => (
         <div key={item.title} className="card">
+          {item.overline && <div className="card-overline">{item.overline}</div>}
           <div className="card-title">{item.title}</div>
           <div className="card-desc">{item.description}</div>
         </div>

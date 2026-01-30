@@ -20,7 +20,7 @@ export const document: DocumentDefinition = {
       type: 'two-column',
       left: {
         type: 'feature-list',
-        title: 'Why Solana\nDevelopment Platform',
+        title: 'Why SDP?',
         description:
           "SDP simplifies integration by unifying Solana's token standards, infrastructure, and developer tools into a single enterprise-ready platform.",
         features: [
@@ -129,14 +129,9 @@ export const document: DocumentDefinition = {
       type: 'cards',
       items: [
         {
-          title: 'The Design Partner Opportunity',
+          title: 'Design Partner Program',
           description:
-            "We are inviting a select group of Enterprise and Financial Institution clients to shape the future of Solana's institutional stack as SDP Design Partners.",
-        },
-        {
-          title: 'Interested in becoming a Design Partner?',
-          description:
-            'Contact the Solana Foundation team to schedule a V1 Sandbox demo and discuss the March launch timeline.',
+            "We're working with a small number of institutions to shape SDP before general availability. If this document reached you, we'd like you to be one of them.",
         },
       ],
     },
