@@ -1,0 +1,43 @@
+.sidebar {
+  width: 200px;
+  flex-shrink: 0;
+  background: #111114;
+  border-left: 1px solid #2e2f35;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7c7e87;
+  margin-bottom: 8px;
+}
+
+.docTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e0e1e4;
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+
+.docMeta {
+  font-size: 11px;
+  color: #7c7e87;
+  line-height: 1.4;
+}
+
+.bottom {
+  margin-top: auto;
+}

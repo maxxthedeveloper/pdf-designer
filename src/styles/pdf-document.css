@@ -1,0 +1,197 @@
+/* ══════════════════════════════════════
+   PDF Document Styles
+   Applied to .pdf-page inside PdfDocument
+   ══════════════════════════════════════ */
+
+.pdf-page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 32px 36px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-page);
+  color: var(--emphasis-extra-high);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Accent line ── */
+.accent-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #9945FF 0%, #14F195 50%, #00C2FF 100%);
+}
+
+/* ── Hero ── */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: end;
+  margin-bottom: 32px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.hero-title {
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--emphasis-extra-high);
+}
+
+.hero-desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--emphasis-medium);
+  max-width: 320px;
+}
+
+/* ── Sections ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+
+.section-head {
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--emphasis-extra-high);
+  margin-bottom: 6px;
+}
+
+.section-desc {
+  font-size: 11.5px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--emphasis-low);
+}
+
+/* ── Feature rows ── */
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.feature-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--icon-bg);
+  border: 1px solid var(--icon-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.feature-icon svg {
+  width: 16px;
+  height: 16px;
+  color: var(--emphasis-medium);
+}
+
+.feature-text {
+  padding-top: 1px;
+}
+
+.feature-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--emphasis-high);
+  margin-bottom: 2px;
+  line-height: 1.3;
+}
+
+.feature-desc {
+  font-size: 10.5px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--emphasis-low);
+}
+
+/* ── Divider ── */
+.divider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin: 4px 0 24px;
+}
+
+/* ── Bottom cards ── */
+.bottom-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.card {
+  background: var(--surface-card);
+  border: 1px solid var(--surface-card-border);
+  border-radius: 12px;
+  padding: 22px 24px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--emphasis-extra-high);
+  margin-bottom: 8px;
+}
+
+.card-desc {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--emphasis-low);
+}
+
+/* ── Footer ── */
+.pdf-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.footer-brand {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--emphasis-extra-low);
+}
+
+.footer-logo svg {
+  height: 20px;
+  width: auto;
+  color: var(--emphasis-extra-low);
+}

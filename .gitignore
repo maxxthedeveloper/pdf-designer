@@ -1,0 +1,9 @@
+node_modules
+dist
+.vite
+*.local
+.DS_Store
+SDP-PDF/
+Untitled UI Icons*/
+design-system.html
+solana-sdp.html
