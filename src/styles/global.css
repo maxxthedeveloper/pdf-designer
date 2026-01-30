@@ -24,3 +24,9 @@ body {
   background: var(--surface-page);
   color: var(--emphasis-high);
 }
+
+/* Agentation toolbar — pin to bottom-left */
+[data-feedback-toolbar] {
+  right: auto !important;
+  left: 1.25rem !important;
+}

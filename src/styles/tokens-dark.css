@@ -13,3 +13,11 @@
   --emphasis-low:        var(--gray-400);
   --emphasis-extra-low:  var(--gray-500);
 }
+
+/* Dark mode: stronger shadows for dark backgrounds */
+[data-theme="dark"] {
+  --shadow-sm:   0 1px 2px rgba(0, 0, 0, 0.20);
+  --shadow-md:   0 2px 6px rgba(0, 0, 0, 0.28), 0 1px 2px rgba(0, 0, 0, 0.16);
+  --shadow-lg:   0 4px 12px rgba(0, 0, 0, 0.32), 0 1px 3px rgba(0, 0, 0, 0.20);
+  --shadow-xl:   0 8px 24px rgba(0, 0, 0, 0.40), 0 2px 6px rgba(0, 0, 0, 0.20);
+}
