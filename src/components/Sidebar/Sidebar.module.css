@@ -59,6 +59,78 @@
   border-color: var(--border-subtle);
 }
 
+.savedSeparator {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--emphasis-low);
+  padding: 6px 10px 2px;
+}
+
+.docItemRow {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.docItemRow .docItem,
+.docItemRow .docItemActive {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.deleteBtn {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--emphasis-low);
+  font-size: 16px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.12s ease;
+  opacity: 0;
+}
+
+.docItemRow:hover .deleteBtn {
+  opacity: 1;
+}
+
+.deleteBtn:hover {
+  color: var(--emphasis-high);
+  background: var(--surface-card);
+}
+
+.importBtn {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px dashed var(--border-subtle);
+  border-radius: 6px;
+  background: transparent;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--emphasis-low);
+  cursor: pointer;
+  transition: all 0.12s ease;
+  margin-bottom: 8px;
+}
+
+.importBtn:hover {
+  color: var(--emphasis-medium);
+  border-color: var(--emphasis-low);
+  background: var(--surface-card);
+}
+
 .docMeta {
   font-size: 10px;
   color: var(--emphasis-low);
@@ -74,6 +146,17 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.exportRow {
+  display: flex;
+  gap: 6px;
+}
+
+.actionBtnCompact {
+  flex: 1;
+  padding: 7px 0;
+  font-size: 13px;
 }
 
 /* ── Base UI Switch ── */
@@ -120,4 +203,35 @@
 
 .switchRoot[data-checked] .switchThumb {
   transform: translateX(16px);
+}
+
+/* ── Action buttons ── */
+
+.actionBtn {
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: var(--emphasis-extra-high);
+  color: var(--surface-page);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.actionBtn:hover {
+  background: var(--emphasis-high);
+}
+
+.actionBtnSecondary {
+  background: transparent;
+  color: var(--emphasis-high);
+  border: 1px solid var(--border-subtle);
+}
+
+.actionBtnSecondary:hover {
+  background: var(--surface-card);
+  color: var(--emphasis-extra-high);
 }

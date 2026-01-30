@@ -61,7 +61,28 @@ export interface CardsSection {
 export interface TextBlockSection {
   type: 'text-block'
   title: string
-  body: string
+  body: string | string[]
+}
+
+export interface TableSection {
+  type: 'table'
+  title?: string
+  description?: string
+  columns: string[]
+  rows: string[][]
+  footnote?: string
+}
+
+export interface BulletGroup {
+  label?: string
+  items: string[]
+}
+
+export interface BulletListSection {
+  type: 'bullet-list'
+  title?: string
+  description?: string
+  groups: BulletGroup[]
 }
 
 export interface ImageSection {
@@ -83,6 +104,8 @@ export type Section =
   | DividerSection
   | CardsSection
   | TextBlockSection
+  | TableSection
+  | BulletListSection
   | ImageSection
   | FooterSection
 

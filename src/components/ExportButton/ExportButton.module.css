@@ -42,3 +42,10 @@
   color: var(--emphasis-medium);
   border-color: var(--emphasis-low);
 }
+
+.compact {
+  flex: 1;
+  width: auto;
+  padding: 7px 0;
+  font-size: 13px;
+}
