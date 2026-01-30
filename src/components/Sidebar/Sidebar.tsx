@@ -3,6 +3,8 @@ import { useAppState, useAppDispatch, useActiveDocument } from '../../context/Ap
 import { resolvePages } from '../../content/helpers'
 import { documentRegistry } from '../../content/registry'
 import ExportButton from '../ExportButton/ExportButton'
+import FigmaExportButton from '../ExportButton/FigmaExportButton'
+import CopyJpgButton from '../ExportButton/CopyJpgButton'
 import styles from './Sidebar.module.css'
 
 interface SidebarProps {
@@ -59,7 +61,11 @@ export default function Sidebar({ pdfRef }: SidebarProps) {
       </div>
 
       <div className={styles.bottom}>
-        <ExportButton pdfRef={pdfRef} />
+        <div className={styles.exportButtons}>
+          <ExportButton pdfRef={pdfRef} />
+          <FigmaExportButton pdfRef={pdfRef} />
+          <CopyJpgButton pdfRef={pdfRef} />
+        </div>
       </div>
     </div>
   )

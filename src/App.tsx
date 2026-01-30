@@ -21,7 +21,7 @@ function Layout() {
     <>
       <ThemeSync />
       <div className={styles.shell}>
-        <nav className={styles.nav}>
+        <nav className={styles.nav} data-print-hide>
           <span className={styles.brand}>PDF Designer</span>
           <div className={styles.links}>
             <NavLink to="/" end className={({ isActive }) => isActive ? styles.linkActive : styles.link}>
@@ -35,7 +35,7 @@ function Layout() {
             </NavLink>
           </div>
         </nav>
-        <main className={styles.main}>
+        <main className={styles.main} data-print-main>
           <Outlet />
         </main>
       </div>

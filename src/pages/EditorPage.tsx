@@ -7,9 +7,9 @@ export default function EditorPage() {
   const pdfRef = useRef<HTMLDivElement>(null)
 
   return (
-    <div className={styles.editor}>
+    <div className={styles.editor} data-print-editor>
       <PdfCanvas pdfRef={pdfRef} />
-      <aside className={styles.sidebar}>
+      <aside className={styles.sidebar} data-print-hide>
         <Sidebar pdfRef={pdfRef} />
       </aside>
     </div>

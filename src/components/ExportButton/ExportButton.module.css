@@ -21,7 +21,24 @@
   cursor: not-allowed;
 }
 
+.secondary {
+  background: transparent;
+  color: var(--emphasis-high);
+  border: 1px solid var(--border-subtle);
+}
+
+.secondary:hover {
+  background: var(--surface-card);
+  color: var(--emphasis-extra-high);
+}
+
 .loading {
   background: var(--emphasis-medium);
   color: var(--surface-page);
+}
+
+.secondary.loading {
+  background: transparent;
+  color: var(--emphasis-medium);
+  border-color: var(--emphasis-low);
 }
