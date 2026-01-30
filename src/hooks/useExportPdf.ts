@@ -1,4 +1,4 @@
-import html2canvas from 'html2canvas'
+import { snapdom } from '@zumer/snapdom'
 import { jsPDF } from 'jspdf'
 import { useActiveDocument } from '../context/AppContext'
 
@@ -9,7 +9,13 @@ export function useExportPdf() {
     const container = pdfRef.current
     if (!container) return
 
+    await Promise.all([
+      document.fonts.load('400 1em Inter'),
+      document.fonts.load('500 1em Inter'),
+      document.fonts.load('600 1em Inter'),
+    ])
     await document.fonts.ready
+    await new Promise(resolve => setTimeout(resolve, 100))
 
     const pageElements = container.querySelectorAll<HTMLElement>('.pdf-page')
     if (pageElements.length === 0) return
@@ -18,11 +24,12 @@ export function useExportPdf() {
     const pageWidth = 210
 
     for (let i = 0; i < pageElements.length; i++) {
-      const canvas = await html2canvas(pageElements[i], {
+      const result = await snapdom(pageElements[i], {
         scale: 3,
-        useCORS: true,
-        logging: false,
+        outerShadows: true,
+        embedFonts: true,
       })
+      const canvas = await result.toCanvas()
 
       const pageHeight = (canvas.height * pageWidth) / canvas.width
       const imgData = canvas.toDataURL('image/png')

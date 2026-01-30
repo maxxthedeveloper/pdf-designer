@@ -20,7 +20,7 @@ export const document: DocumentDefinition = {
       type: 'two-column',
       left: {
         type: 'feature-list',
-        title: 'Why Solana\nDevelopment Platform',
+        title: 'Why SDP?',
         description:
           "SDP simplifies integration by unifying Solana's token standards, infrastructure, and developer tools into a single enterprise-ready platform.",
         features: [
