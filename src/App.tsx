@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { Outlet, NavLink } from 'react-router-dom'
-import { Agentation } from 'agentation'
 import { AppProvider, useAppState } from './context/AppContext'
 import styles from './App.module.css'
 
@@ -30,8 +29,8 @@ function Layout() {
             <NavLink to="/editor" className={({ isActive }) => isActive ? styles.linkActive : styles.link}>
               Editor
             </NavLink>
-            <NavLink to="/tokens" className={({ isActive }) => isActive ? styles.linkActive : styles.link}>
-              Tokens
+            <NavLink to="/library" className={({ isActive }) => isActive ? styles.linkActive : styles.link}>
+              Library
             </NavLink>
           </div>
         </nav>
@@ -47,7 +46,6 @@ export default function App() {
   return (
     <AppProvider>
       <Layout />
-      {import.meta.env.DEV && <Agentation />}
     </AppProvider>
   )
 }

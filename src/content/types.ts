@@ -95,6 +95,8 @@ export interface FooterSection {
   type: 'footer'
   brand: string
   logo?: IconName | ComponentType
+  pageNumber?: number
+  totalPages?: number
 }
 
 export type Section =

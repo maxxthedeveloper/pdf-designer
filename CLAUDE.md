@@ -89,6 +89,12 @@ Preview updates via hot reload on save.
 | `src/content/documents/*.ts` | Document definitions — structure and copy |
 | `src/content/types.ts` | TypeScript schema for all section types |
 | `src/content/registry.ts` | Document registry (builtin + saved) |
+| `src/library/blocks/` | Reusable block factories (organized by category) |
+| `src/library/templates/` | Page template definitions with named slots |
+| `src/library/types.ts` | Block type definitions (`BlockDefinition`, `BlockMeta`) |
+| `src/library/template-types.ts` | Template type definitions (`TemplateDefinition`, `TemplateSlot`) |
+| `src/library/registry.ts` | Block registry + query API |
+| `src/library/template-registry.ts` | Template registry + query API |
 | `src/styles/tokens.css` | Design tokens (the single source of truth for all visual properties) |
 | `src/styles/tokens-dark.css` | Dark mode token overrides |
 | `src/styles/pdf-document.css` | PDF page layout and component styles |
@@ -96,6 +102,7 @@ Preview updates via hot reload on save.
 | `src/icons/registry.ts` | Maps icon names to components |
 | `src/components/SectionRenderer/` | Routes section types to React components |
 | `src/components/PdfDocument/sections/` | Section component implementations |
+| `src/pages/LibraryPage.tsx` | Browsable catalog of blocks and templates |
 
 ## Section Types
 
@@ -129,8 +136,77 @@ Preview updates via hot reload on save.
 // Divider, Image, Footer
 { type: "divider" }
 { type: "image", src: "...", alt: "..." }
-{ type: "footer", brand: "...", logo?: "solana-logo" }
+{ type: "footer", brand: "...", logo?: "solana-logo", pageNumber?: 1, totalPages?: 6 }
 ```
+
+## Library: Blocks & Templates
+
+Three-layer architecture: **Tokens** (primitives) > **Blocks** (configured sections) > **Templates** (page layouts) > **Documents** (full PDFs).
+
+Browse at `/library` in the app.
+
+### Blocks
+
+A block is a factory function that returns `Section | Section[]`. Use `block.create()` for defaults or `block.create({ ...overrides })` for customization. Blocks are "live" — updating a block definition updates all documents using it.
+
+| Category | Block ID | Produces | Import Path |
+|----------|----------|----------|-------------|
+| `heroes` | `hero-split` | `hero` | `library/blocks/heroes` |
+| `features` | `two-col-with-divider` | `divider` + `two-column` | `library/blocks/features` |
+| `features` | `feature-grid` | `feature-list` | `library/blocks/features` |
+| `content` | `text-section` | `text-block` | `library/blocks/content` |
+| `content` | `comparison-table` | `table` | `library/blocks/content` |
+| `content` | `bullet-groups` | `bullet-list` | `library/blocks/content` |
+| `cta` | `cta-cards` | `cards` | `library/blocks/cta` |
+| `navigation` | `solana-footer` | `footer` | `library/blocks/navigation` |
+| `navigation` | `solana-accent-bar` | accent-bar | `library/blocks/navigation` |
+| `navigation` | `divider` | `divider` | `library/blocks/navigation` |
+
+```ts
+// Usage: import and call create()
+import { solanaFooter } from '../../library/blocks/navigation/solana-footer'
+import { heroSplit } from '../../library/blocks/heroes/hero-split'
+
+solanaFooter.create()                                       // Default Solana Foundation footer
+solanaFooter.create({ brand: 'Solana Labs' })               // Override brand text
+solanaFooter.create({ pageNumber: 1, totalPages: 6 })       // With pagination
+heroSplit.create({ title: 'My\nTitle', description: '...' })
+```
+
+### Templates
+
+A template defines a single-page layout with named slots. Call `template.assemble({ ...slots })` to produce a `Section[]`.
+
+| Template ID | Category | Slots |
+|-------------|----------|-------|
+| `cover-page` | capability-deck | `hero`, `content?`, `cta?`, `footer?` |
+| `data-page` | comparison | `heading?`, `data`, `footer?` |
+| `title-data-page` | comparison | `hero`, `summary?`, `data`, `footer?` |
+| `feature-page` | capability-deck | `hero?`, `features`, `cta?`, `footer?` |
+
+```ts
+// Usage: import and call assemble()
+import { coverPage } from '../../library/templates/cover-page'
+
+const sections = coverPage.assemble({
+  hero: heroSplit.create({ title: '...', description: '...' }),
+  content: [...twoColWithDivider.create({ left: {...}, right: {...} })],
+  cta: { type: 'cards', items: [...] },
+  // footer defaults to solanaFooter.create()
+})
+```
+
+### Adding Blocks
+
+1. Create `src/library/blocks/<category>/<block-name>.ts`
+2. Export from `src/library/blocks/<category>/index.ts`
+3. Register in `src/library/registry.ts`
+
+### Adding Templates
+
+1. Create `src/library/templates/<template-name>.ts`
+2. Export from `src/library/templates/index.ts`
+3. Register in `src/library/template-registry.ts`
 
 ## Available Icons
 

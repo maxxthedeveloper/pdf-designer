@@ -11,3 +11,9 @@
   flex-shrink: 0;
   height: fit-content;
 }
+
+@media print {
+  .pageWrapper {
+    display: contents;
+  }
+}
