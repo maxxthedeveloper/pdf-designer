@@ -36,7 +36,7 @@
      caption-sm      →  medium           →  Readable
      overline        →  low              →  Decorative  */
   --emphasis-extra-high: var(--gray-950);   /* ~19:1 — titles, headings */
-  --emphasis-high:       var(--gray-650);   /* ~9:1  — primary body, labels */
+  --emphasis-high:       var(--gray-650);   /* ~9:1  — primary body */
   --emphasis-medium:     var(--gray-500);   /* ~6:1  — secondary body, descriptions */
   --emphasis-low:        var(--gray-300);   /* ~3:1  — icons, overlines, metadata */
   --emphasis-extra-low:  var(--gray-200);   /* ~2:1  — footer, watermarks */
