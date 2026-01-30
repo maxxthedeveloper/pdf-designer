@@ -1,9 +1,7 @@
 .sidebar {
-  width: 200px;
-  flex-shrink: 0;
-  background: #111114;
-  border-left: 1px solid #2e2f35;
-  padding: 24px 16px;
+  width: 100%;
+  height: 100%;
+  padding: 20px 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -20,24 +18,100 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #7c7e87;
+  color: var(--emphasis-low);
   margin-bottom: 8px;
 }
 
-.docTitle {
-  font-size: 13px;
-  font-weight: 600;
-  color: #e0e1e4;
-  line-height: 1.3;
-  margin-bottom: 4px;
+/* ── Document list ── */
+
+.docList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 8px;
+}
+
+.docItem,
+.docItemActive {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--emphasis-medium);
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+
+.docItem:hover {
+  color: var(--emphasis-high);
+  background: var(--surface-card);
+}
+
+.docItemActive {
+  color: var(--emphasis-extra-high);
+  background: var(--surface-card);
+  border-color: var(--border-subtle);
 }
 
 .docMeta {
-  font-size: 11px;
-  color: #7c7e87;
+  font-size: 10px;
+  color: var(--emphasis-low);
   line-height: 1.4;
+  padding-left: 2px;
 }
 
 .bottom {
   margin-top: auto;
+}
+
+/* ── Base UI Switch ── */
+
+.switchRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.switchLabel {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--emphasis-extra-high);
+}
+
+.switchRoot {
+  width: 36px;
+  height: 20px;
+  border-radius: 10px;
+  background: var(--border-subtle);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+  transition: background 0.15s ease;
+}
+
+.switchRoot[data-checked] {
+  background: var(--emphasis-medium);
+}
+
+.switchThumb {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--surface-page);
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.15s ease;
+}
+
+.switchRoot[data-checked] .switchThumb {
+  transform: translateX(16px);
 }
