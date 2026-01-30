@@ -29,9 +29,6 @@ function Layout() {
             <NavLink to="/editor" className={({ isActive }) => isActive ? styles.linkActive : styles.link}>
               Editor
             </NavLink>
-            <NavLink to="/tokens" className={({ isActive }) => isActive ? styles.linkActive : styles.link}>
-              Tokens
-            </NavLink>
             <NavLink to="/library" className={({ isActive }) => isActive ? styles.linkActive : styles.link}>
               Library
             </NavLink>

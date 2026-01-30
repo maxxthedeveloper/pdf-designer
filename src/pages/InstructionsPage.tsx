@@ -12,7 +12,7 @@ export default function InstructionsPage() {
           <summary className={styles.sectionTitle}>How it works</summary>
           <ol className={styles.list}>
             <li>Describe your PDF and share source material</li>
-            <li>Preview updates live, give feedback, iterate</li>
+            <li>Preview updates live, tell Claude Code what to change</li>
             <li>Export PDF</li>
           </ol>
         </details>

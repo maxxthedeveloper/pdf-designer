@@ -1,0 +1,117 @@
+.page {
+  flex: 1;
+  overflow: auto;
+  padding: 48px 40px;
+}
+
+.pageTitle {
+  font-size: var(--type-heading-size);
+  font-weight: var(--type-heading-weight);
+  color: var(--emphasis-extra-high);
+  margin-bottom: 8px;
+  letter-spacing: var(--type-heading-tracking);
+}
+
+.pageDesc {
+  font-size: var(--type-body-size);
+  font-weight: var(--type-body-weight);
+  color: var(--emphasis-medium);
+  line-height: var(--type-body-leading);
+  margin-bottom: 32px;
+  max-width: 600px;
+}
+
+.pageDesc code {
+  font-size: var(--type-caption-size);
+  background: var(--surface-card);
+  border: 1px solid var(--surface-card-border);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.section {
+  margin-bottom: 32px;
+}
+
+.sectionTitle {
+  font-size: var(--type-overline-size);
+  font-weight: var(--type-overline-weight);
+  color: var(--emphasis-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--type-overline-tracking);
+  margin-bottom: 12px;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--surface-card);
+  border: 1px solid var(--surface-card-border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.cardName {
+  font-size: var(--type-label-size);
+  font-weight: var(--type-label-weight);
+  color: var(--emphasis-extra-high);
+  letter-spacing: var(--type-label-tracking);
+}
+
+.badge {
+  font-size: var(--type-caption-sm-size);
+  font-weight: var(--type-caption-sm-weight);
+  color: var(--emphasis-low);
+  letter-spacing: var(--type-caption-sm-tracking);
+  background: var(--surface-page);
+  border: 1px solid var(--surface-card-border);
+  border-radius: 4px;
+  padding: 2px 6px;
+  white-space: nowrap;
+}
+
+.cardDesc {
+  font-size: var(--type-caption-size);
+  font-weight: var(--type-caption-weight);
+  color: var(--emphasis-medium);
+  line-height: var(--type-caption-leading);
+}
+
+.preview {
+  background: var(--surface-page);
+  border: 1px solid var(--surface-card-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tag {
+  font-size: 9px;
+  color: var(--emphasis-low);
+  font-weight: var(--weight-medium);
+  background: var(--surface-page);
+  border: 1px solid var(--surface-card-border);
+  border-radius: 3px;
+  padding: 1px 5px;
+}

@@ -1,0 +1,46 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.subnav {
+  display: flex;
+  gap: 2px;
+  padding: 0 20px;
+  height: 36px;
+  align-items: center;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--surface-page);
+}
+
+.tab,
+.tabActive {
+  font-size: var(--type-caption-size);
+  font-weight: var(--weight-medium);
+  padding: 4px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.tab {
+  color: var(--emphasis-medium);
+}
+
+.tab:hover {
+  color: var(--emphasis-high);
+  background: var(--surface-card);
+}
+
+.tabActive {
+  color: var(--emphasis-extra-high);
+  background: var(--surface-card);
+}
+
+.content {
+  flex: 1;
+  overflow: hidden;
+}
