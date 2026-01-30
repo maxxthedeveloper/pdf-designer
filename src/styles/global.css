@@ -47,6 +47,7 @@ body {
 
   [data-print-main] {
     overflow: visible;
+    height: auto;
   }
 
   [data-print-editor] {
@@ -55,6 +56,7 @@ body {
   }
 
   [data-print-canvas] {
+    display: block;
     padding: 0;
     background: transparent;
     overflow: visible;

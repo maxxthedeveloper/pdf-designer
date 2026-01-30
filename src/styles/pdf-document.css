@@ -328,6 +328,8 @@
   }
 
   .pdf-page {
+    height: 297mm;
+    min-height: 0;
     box-shadow: none;
     break-after: page;
     page-break-after: always;

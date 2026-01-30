@@ -47,7 +47,7 @@ export default function App() {
   return (
     <AppProvider>
       <Layout />
-      {import.meta.env.DEV && <Agentation />}
+      {import.meta.env.DEV && <div data-print-hide><Agentation /></div>}
     </AppProvider>
   )
 }

@@ -57,3 +57,10 @@
   flex: 1;
   overflow: hidden;
 }
+
+@media print {
+  .shell {
+    height: auto;
+    overflow: visible;
+  }
+}
