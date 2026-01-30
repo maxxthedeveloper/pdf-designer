@@ -7,11 +7,11 @@
   --icon-border:         var(--gray-750);
   --surface-canvas:      var(--gray-850);
 
-  --emphasis-extra-high: var(--gray-50);
-  --emphasis-high:       var(--gray-150);
-  --emphasis-medium:     var(--gray-300);
-  --emphasis-low:        var(--gray-400);
-  --emphasis-extra-low:  var(--gray-500);
+  --emphasis-extra-high: var(--gray-50);    /* ~18:1 */
+  --emphasis-high:       var(--gray-200);   /* ~10:1 */
+  --emphasis-medium:     var(--gray-300);   /* ~7:1  */
+  --emphasis-low:        var(--gray-500);   /* ~3:1  */
+  --emphasis-extra-low:  var(--gray-650);   /* ~1.7:1 */
 }
 
 /* Dark mode: stronger shadows for dark backgrounds */

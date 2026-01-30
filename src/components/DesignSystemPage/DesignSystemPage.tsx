@@ -30,7 +30,6 @@ const typeScale = [
   { name: 'lg', var: '--text-lg' },
   { name: 'xl', var: '--text-xl' },
   { name: '2xl', var: '--text-2xl' },
-  { name: '3xl', var: '--text-3xl' },
 ]
 
 const iconNames = Object.keys(iconRegistry) as (keyof typeof iconRegistry)[]

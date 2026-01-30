@@ -48,6 +48,7 @@ export interface DividerSection {
 }
 
 export interface CardItem {
+  overline?: string
   title: string
   description: string
 }
